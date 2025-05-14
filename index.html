@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body style="text-align: center;">
+    <h1>Kvadrātvienadojuma risinātājs</h1>
+
+    <input type="number" id="ask"> <input type="number" id="bsk"> <input type="number" id="csk">
+
+    <button type="button" onclick="start()">Aprēķināt</button>
+
+    <p id="izvade"> </p>
+
+    <p id="result"></p>
+    <script>
+        function disk(a, b, c) {
+            return b * b - 4 * a * c;
+        }
+
+        // function diskriminants() {
+        //     var a, b, c;
+        //     a = ask.value;
+        //     b = bsk.value;
+        //     c = csk.value;
+        //     var d = disk(a, b, c);
+        //     // document.getElementById("izvade").innerHTML = "D = " + d;
+        // }
+
+
+        function saknes(a, b, D) {
+            if (D < 0) {
+                return false;
+            } else {
+                var x1 = (-b + Math.sqrt(D)) / (2 * a)
+                var x2 = (-b - Math.sqrt(D)) / (2 * a)
+                return [x1, x2];
+            }
+        }
+
+
+
+
+
+
+
+
+        
+        
+        var atb == saknes(a, b disk(a, b, c));
+        function aprekinat() {
+            var a = Number(ask.value);
+            var b = Number(bak.value);
+            var c = Number(csk.value);
+
+            if (usNaN(a) || isNaN(b) || isNaN(c) || a === 0) {
+                rezultats.innerHTML = "Ludzu ievadi korektus koeficentus! ()"
+                return;
+            }
+            var atb = saknes(a, b, disk(a, b, c));
+            if (atb === false) {
+                document.getElementById("rezultats").innerHTML = "Kvadratvienadojumam nav reālu sakņu.";
+            } else {
+                document.getElementById("rezultats").innerHTML = 'Saknes: x1 = ${atb[0].toFixed(3)}, x2 = ${atb[1].toFixed(3)}';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
